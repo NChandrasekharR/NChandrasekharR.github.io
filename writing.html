@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Writing - Chandra Ramanujan</title>
+  <meta property="og:title" content="Writing - Chandra Ramanujan" />
+  <meta name="author" content="Chandra Ramanujan" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="description" content="Thoughts on design, tech, culture and the craft of building products" />
+  <meta property="og:site_name" content="Chandra Ramanujan" />
+  <meta name="twitter:card" content="summary" />
+  <meta property="twitter:title" content="Writing - Chandra Ramanujan" />
+  
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="fonts.css">
+  <style>
+    .writing-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    
+    .writing-hero {
+      text-align: center;
+      margin-bottom: 60px;
+      animation: fadeInUp 0.6s ease;
+    }
+    
+    .writing-hero h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      color: var(--text-color-dark);
+    }
+    
+    .writing-hero p {
+      font-size: 1.3em;
+      color: var(--text-color);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    
+    .writing-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+      gap: 20px;
+      animation: fadeInUp 0.6s ease 0.1s both;
+    }
+    
+    .filter-tags {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    
+    .filter-tag {
+      padding: 8px 16px;
+      border: 2px solid var(--accent-color-light);
+      background: transparent;
+      color: var(--text-color);
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.9em;
+      text-decoration: none;
+    }
+    
+    .filter-tag:hover {
+      background: var(--accent-color-light);
+      transform: translateY(-2px);
+    }
+    
+    .filter-tag.active {
+      background: var(--accent-color);
+      color: white;
+      border-color: var(--accent-color);
+    }
+    
+    .search-box {
+      position: relative;
+    }
+    
+    .search-input {
+      padding: 10px 40px 10px 15px;
+      border: 2px solid var(--overlay-edge-color);
+      border-radius: 25px;
+      background: var(--background-color);
+      color: var(--text-color);
+      font-size: 0.9em;
+      width: 250px;
+    }
+    
+    .search-input:focus {
+      outline: none;
+      border-color: var(--accent-color);
+    }
+    
+    .search-icon {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-color-light);
+    }
+    
+    .posts-grid {
+      display: grid;
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+    
+    .post-container {
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--overlay-edge-color);
+      animation: fadeInUp 0.6s ease both;
+      position: relative;
+    }
+    
+    .post-container:last-child {
+      border-bottom: none;
+    }
+    
+    .post-container.hidden {
+      display: none;
+    }
+    
+    .post-featured {
+      border-left: 4px solid var(--accent-color);
+      padding-left: 20px;
+      background: var(--overlay-color);
+      border-radius: 8px;
+      padding: 20px;
+    }
+    
+    .post-container .post-title {
+      margin-bottom: 8px;
+      font-size: 20px;
+    }
+    
+    .post-container .post-title a {
+      color: var(--text-color-dark);
+      text-decoration: none;
+    }
+    
+    .post-container .post-title a:hover {
+      color: var(--accent-color);
+    }
+    
+    .post-container .post-subtitle {
+      color: var(--text-color);
+      margin-bottom: 4px;
+      line-height: 1.4;
+    }
+    
+    .post-container .post-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    
+    .post-container .post-date {
+      color: var(--text-color-light);
+      font-size: 14px;
+    }
+    
+    .post-container .post-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    
+    .post-container .post-tag {
+      background-color: var(--accent-color-light);
+      color: var(--text-color);
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 500;
+      display: inline-block;
+      transition: all 0.2s ease;
+    }
+    
+    .post-container .post-tag:hover {
+      background-color: var(--accent-color);
+      color: #fff;
+      transform: translateY(-1px);
+    }
+    
+    .featured-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: var(--accent-color);
+      color: white;
+      padding: 5px 12px;
+      border-radius: 15px;
+      font-size: 0.8em;
+      font-weight: 600;
+    }
+    
+    .pagination {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 40px;
+    }
+    
+    .pagination button {
+      padding: 10px 20px;
+      border: 2px solid var(--accent-color-light);
+      background: transparent;
+      color: var(--text-color);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .pagination button:hover {
+      background: var(--accent-color-light);
+    }
+    
+    .pagination button.active {
+      background: var(--accent-color);
+      color: white;
+      border-color: var(--accent-color);
+    }
+    
+    .stats-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 30px;
+      background: var(--overlay-color);
+      border-radius: 12px;
+      margin-bottom: 40px;
+      animation: fadeInUp 0.6s ease 0.2s both;
+    }
+    
+    .stats-item {
+      text-align: center;
+    }
+    
+    .stats-number {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: var(--accent-color);
+    }
+    
+    .stats-label {
+      font-size: 0.9em;
+      color: var(--text-color-light);
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .post-card {
+        flex-direction: column;
+        gap: 20px;
+        padding: 25px;
+      }
+      
+      .writing-controls {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      
+      .filter-tags {
+        justify-content: center;
+      }
+      
+      .search-input {
+        width: 100%;
+      }
+      
+      .writing-hero h1 {
+        font-size: 2em;
+      }
+    }
+  </style>
+</head>
+  
+<body>
+  <header class="site-header">
+    <div class="wrapper">
+      <a class="site-title" rel="author" href="/">Chandra Ramanujan</a>
+     <nav class="site-nav">
+  <div class="wrapper nav-wrapper">
+    <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+    <label for="nav-trigger">
+      <span class="menu-icon">
+        <svg viewBox="0 0 18 15" width="18px" height="15px">
+          <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+        </svg>
+      </span>
+    </label>
+    <div class="trigger">
+      <a class="page-link" href="/">Home</a>
+      <a class="page-link" href="work.html">Work</a>
+      <a class="page-link" href="writing.html">Writing</a>
+      <a class="page-link" href="contact.html">Contact</a>
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+  
+  <main class="page-content" aria-label="Content">
+    <div class="writing-container">
+      
+      <div class="writing-hero">
+        <h1>Writing</h1>
+        <p>Thoughts on design, tech, culture and the craft of building products that matter</p>
+      </div>
+      
+      <div class="stats-bar">
+        <div class="stats-item">
+          <div class="stats-number" id="totalPosts">12</div>
+          <div class="stats-label">Articles</div>
+        </div>
+        <div class="stats-item">
+          <div class="stats-number">4</div>
+          <div class="stats-label">Topics</div>
+        </div>
+        <div class="stats-item">
+          <div class="stats-number">2024</div>
+          <div class="stats-label">Active Since</div>
+        </div>
+      </div>
+      
+      <div class="writing-controls">
+        <div class="filter-tags">
+          <button class="filter-tag active" data-filter="all">All Posts</button>
+          <button class="filter-tag" data-filter="product design">Product Design</button>
+          <button class="filter-tag" data-filter="user research">User Research</button>
+          <button class="filter-tag" data-filter="data analytics">Data Analytics</button>
+          <button class="filter-tag" data-filter="career">Career</button>
+        </div>
+        
+        <div class="search-box">
+          <input type="text" class="search-input" placeholder="Search articles..." id="searchInput">
+          <span class="search-icon">🔍</span>
+        </div>
+      </div>
+      
+      <div class="posts-grid" id="postsContainer">
+        <!-- Posts will be loaded here by JavaScript -->
+      </div>
+      
+      <div class="pagination" id="pagination">
+        <!-- Pagination will be generated by JavaScript -->
+      </div>
+      
+    </div>
+  </main>
+  
+  <!-- Firebase config (same as index.html) -->
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-analytics.js";
+    import { getDatabase, ref, set, onValue, update } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-database.js";
+    import { getAuth, signInWithRedirect, getRedirectResult, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCrYHfMLzFwXtYucOzkVEEvXhywnT53cWE",
+      authDomain: "chandrafun-fcc62.firebaseapp.com",
+      databaseURL: "https://chandrafun-fcc62-default-rtdb.asia-southeast1.firebasedatabase.app/",
+      projectId: "chandrafun-fcc62",
+      storageBucket: "chandrafun-fcc62.appspot.com",
+      messagingSenderId: "46457356879",
+      appId: "1:46457356879:web:acecdd6ad80d947b8a203a",
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const db = getDatabase();
+    const reference = ref(db, 'posts');
+
+    let allPosts = [];
+    let currentPage = 1;
+    const postsPerPage = 6;
+
+    // Function to get date for sorting
+    function getPostDate(postData) {
+      if (postData.date) {
+        return new Date(postData.date);
+      }
+      const title = (postData.title || '').toLowerCase();
+      if (title.includes('vibe') || title.includes('coding')) {
+        return new Date('2024-12-15');
+      } else if (title.includes('design') || title.includes('product')) {
+        return new Date('2024-11-28');
+      } else if (title.includes('gojek')) {
+        return new Date('2024-10-15');
+      } else if (title.includes('wayground')) {
+        return new Date('2024-09-20');
+      } else if (title.includes('tech')) {
+        return new Date('2024-08-10');
+      } else {
+        return new Date('2024-01-01');
+      }
+    }
+
+    // Function to generate tags
+    function getTags(title, subtitle) {
+      const tags = [];
+      const text = ((title || '') + ' ' + (subtitle || '')).toLowerCase();
+      
+      if (text.includes('user') || text.includes('research') || text.includes('interview') || 
+          text.includes('usability') || text.includes('testing') || text.includes('feedback')) {
+        tags.push('user research');
+      }
+      
+      if (text.includes('data') || text.includes('analytics') || text.includes('metric') || 
+          text.includes('analysis') || text.includes('dashboard') || text.includes('insight')) {
+        tags.push('data analytics');
+      }
+      
+      if (text.includes('design') || text.includes('ui') || text.includes('ux') || 
+          text.includes('interface') || text.includes('wireframe') || text.includes('prototype') ||
+          text.includes('vibe') || text.includes('visual')) {
+        tags.push('product design');
+      }
+      
+      if (text.includes('career') || text.includes('job') || text.includes('work') || 
+          text.includes('gojek') || text.includes('wayground') || text.includes('team') ||
+          text.includes('growth') || text.includes('learning')) {
+        tags.push('career');
+      }
+      
+      if (tags.length === 0) {
+        if (text.includes('msme') || text.includes('business')) {
+          tags.push('product design');
+        } else {
+          tags.push('career');
+        }
+      }
+      
+      return tags;
+    }
+
+    // Function to estimate read time
+    function estimateReadTime(text) {
+      const wordsPerMinute = 200;
+      const words = (text || '').split(' ').length;
+      const minutes = Math.ceil(words / wordsPerMinute);
+      return Math.max(1, minutes);
+    }
+
+    // Function to render posts
+    function renderPosts(posts, page = 1) {
+      const container = document.getElementById('postsContainer');
+      const startIndex = (page - 1) * postsPerPage;
+      const endIndex = startIndex + postsPerPage;
+      const postsToShow = posts.slice(startIndex, endIndex);
+
+      container.innerHTML = '';
+
+      postsToShow.forEach((post, index) => {
+        const postDate = getPostDate(post.data);
+        const tags = post.data.tags || getTags(post.data.title, post.data.subtitle);
+        const readTime = estimateReadTime(post.data.subtitle);
+        const isFeatured = index === 0 && page === 1; // First post on first page is featured
+
+        const dateStr = postDate.toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric'
+        });
+
+        const postCard = `
+          <div class="post-container animated fadeInUp ${isFeatured ? 'post-featured' : ''}" data-tags="${tags.join(' ')}" style="animation-delay: ${index * 0.1}s">
+            ${isFeatured ? '<div class="featured-badge">Featured</div>' : ''}
+            <h3 class="post-title">
+              <a href="/${post.key}">${post.data.title || 'Untitled'}</a>
+            </h3>
+            <p class="post-subtitle">${post.data.subtitle || 'No excerpt available.'}</p>
+            <div class="post-meta">
+              <span class="post-date">${dateStr}</span>
+              <div class="post-tags">
+                ${tags.map(tag => `<span class="post-tag">${tag}</span>`).join('')}
+              </div>
+            </div>
+          </div>
+        `;
+        container.innerHTML += postCard;
+      });
+
+      // Update pagination
+      renderPagination(posts.length, page);
+    }
+
+    // Function to render pagination
+    function renderPagination(totalPosts, currentPage) {
+      const totalPages = Math.ceil(totalPosts / postsPerPage);
+      const paginationContainer = document.getElementById('pagination');
+      
+      if (totalPages <= 1) {
+        paginationContainer.innerHTML = '';
+        return;
+      }
+
+      let paginationHTML = '';
+      
+      // Previous button
+      if (currentPage > 1) {
+        paginationHTML += `<button onclick="changePage(${currentPage - 1})">← Previous</button>`;
+      }
+      
+      // Page numbers
+      for (let i = 1; i <= totalPages; i++) {
+        paginationHTML += `<button class="${i === currentPage ? 'active' : ''}" onclick="changePage(${i})">${i}</button>`;
+      }
+      
+      // Next button
+      if (currentPage < totalPages) {
+        paginationHTML += `<button onclick="changePage(${currentPage + 1})">Next →</button>`;
+      }
+      
+      paginationContainer.innerHTML = paginationHTML;
+    }
+
+    // Global function for pagination
+    window.changePage = function(page) {
+      currentPage = page;
+      const filtered = filterPosts();
+      renderPosts(filtered, page);
+    };
+
+    // Function to filter posts
+    function filterPosts() {
+      const activeFilter = document.querySelector('.filter-tag.active').getAttribute('data-filter');
+      const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+      
+      let filtered = allPosts;
+      
+      // Filter by tag
+      if (activeFilter !== 'all') {
+        filtered = filtered.filter(post => {
+          const tags = post.data.tags || getTags(post.data.title, post.data.subtitle);
+          return tags.includes(activeFilter);
+        });
+      }
+      
+      // Filter by search
+      if (searchTerm) {
+        filtered = filtered.filter(post => {
+          const searchableText = (post.data.title + ' ' + post.data.subtitle).toLowerCase();
+          return searchableText.includes(searchTerm);
+        });
+      }
+      
+      return filtered;
+    }
+
+    // Load posts from Firebase
+    onValue(reference, (snapshot) => {
+      const posts = [];
+      snapshot.forEach((postSnapshot) => {
+        posts.push({
+          key: postSnapshot.key,
+          data: postSnapshot.val()
+        });
+      });
+
+      // Sort posts by date (newest first)
+      allPosts = posts.sort((a, b) => {
+        const dateA = getPostDate(a.data);
+        const dateB = getPostDate(b.data);
+        return dateB - dateA;
+      });
+
+      // Update total posts count
+      document.getElementById('totalPosts').textContent = allPosts.length;
+
+      // Render initial posts
+      renderPosts(allPosts, 1);
+    });
+
+    // Filter functionality
+    const filterBtns = document.querySelectorAll('.filter-tag');
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentPage = 1;
+        const filtered = filterPosts();
+        renderPosts(filtered, 1);
+      });
+    });
+
+    // Search functionality
+    document.getElementById('searchInput').addEventListener('input', () => {
+      currentPage = 1;
+      const filtered = filterPosts();
+      renderPosts(filtered, 1);
+    });
+  </script>
+  <script src="theme-toggle.js"></script>
+</body>
+</html>

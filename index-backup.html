@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+  <title>Chandra Ramanujan</title>
+  <meta property="og:title" content="Chandra Ramanujan" />
+  <meta name="author" content="Chandra Ramanujan" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="description" content="Chandra's blog" />
+  <meta property="og:site_name" content="Chandra Ramanujan" />
+  <meta name="twitter:card" content="summary" />
+  <meta property="twitter:title" content="Chandra Ramanujan" />
+  <!-- End Jekyll SEO tag -->
+
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="fonts.css">
+  <style>
+    .theme-toggle {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--accent-color);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+    
+    .theme-toggle:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
+    
+    [data-theme="light"] .theme-toggle {
+      background: var(--text-color-dark);
+      color: white;
+    }
+    
+    [data-theme="dark"] .theme-toggle {
+      background: #ffd700;
+      color: #1a1a1a;
+    }
+    
+    /* Smooth transition for theme changes */
+    body {
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    
+    /* Override existing dark mode detection with manual control */
+    [data-theme="dark"] {
+      --background-color: #19182b;
+      --foreground-color: rgba(0, 0, 0, 0.3);
+      --text-color-dark: rgba(255, 255, 255, 1);
+      --text-color: rgba(255, 255, 255, .85);
+      --text-color-light: rgba(255, 255, 255, .7);
+      --accent-color-dark: #b91d1d;
+      --accent-color: #ff4343;
+      --accent-color-light: #ff78781a;
+      --overlay-color: rgba(0, 0, 0, .2);
+      --overlay-edge-color: rgba(255, 255, 255, .2);
+    }
+    
+    [data-theme="light"] {
+      --background-color: #fff4ed;
+      --foreground-color: #240909;
+      --text-color-dark: #052840;
+      --text-color: #02395E;
+      --text-color-light: #999;
+      --accent-color-dark: #940f0f;
+      --accent-color: #fd4a4a;
+      --accent-color-light: rgb(0 22 216 / 10%);
+      --overlay-color: rgba(255, 255, 255, .8);
+      --overlay-edge-color: rgba(0, 0, 0, .08);
+    }
+  </style>
+</head>
+  
+<body>
+  <header class="site-header">
+    <div class="wrapper">
+      <a class="site-title" rel="author" href="/">Chandra Ramanujan</a>
+     <nav class="site-nav">
+  <div class="wrapper nav-wrapper">
+    <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+    <label for="nav-trigger">
+      <span class="menu-icon">
+        <svg viewBox="0 0 18 15" width="18px" height="15px">
+          <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+        </svg>
+      </span>
+    </label>
+    <div class="trigger">
+      <a class="page-link" href="/">Home</a>
+      <a class="page-link" href="work.html">Work</a>
+      <a class="page-link" href="about.html">About</a>
+      <a class="page-link" href="writing.html">Writing</a>
+      <a class="page-link" href="contact.html">Contact</a>
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+  <main class="page-content" aria-label="Content">
+    <div class="wrapper">
+
+      <article id="pageContent" class="post h-entry animated fadeInUp" itemscope itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+          <img class="display-photo" src="assets/chandra3.png" alt="">
+          <h1 id="title" class="post-title p-name" itemprop="name headline">
+            <span id="htmlTitle">Chandra Ramanujan</span>
+          </h1>
+          <div id="htmlSubtitle" class="sub-title">
+            <p>Hello! My name is Chandra. I'm a product designer passionate about creating meaningful experiences that make complex problems simple.</p>
+
+          <div id="htmlBody" class="articleBody">
+
+            <p>I like to write about design, tech, culture and other things that I see around me. I hope what I share is helpful to you in your day-to-day work of designing and building products!</p>
+            <p>I love talking to people :-) If you want to talk to me about something I've written, please ping me on <a style="font-weight:bold" href="https://twitter.com/NCResq">twitter</a> or email <b>attnchand@gmail.com</b></p>
+
+            <div class="social-links">
+              <ul class="social-media-list">
+                <li>
+                  <a href="https://www.linkedin.com/in/chandrasekharn/" title="LinkedIn">
+                    <svg class="svg-icon grey">
+                      <use xlink:href="assets/minima-social-icons.svg#linkedin">
+                      </use>
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://twitter.com/NCResq" title="Twitter">
+                    <svg class="svg-icon grey">
+                      <use xlink:href="assets/minima-social-icons.svg#twitter">
+                      </use>
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://dribbble.com/NCResq/shots" title="Dribbble">
+                    <svg class="svg-icon grey">
+                      <use xlink:href="assets/minima-social-icons.svg#dribbble">
+                      </use>
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://instagram.com/NCResq" title="Instagram">
+                    <svg class="svg-icon grey">
+                      <use xlink:href="assets/minima-social-icons.svg#instagram">
+                      </use>
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://medium.com/@NCResq" title="Medium">
+                    <svg class="svg-icon grey" viewBox="0 0 16 16">
+                      <path d="M13.76 1.75H2.25c-.28 0-.5.22-.5.5v11.5c0 .28.22.5.5.5h11.5c.28 0 .5-.22.5-.5V2.25c0-.28-.22-.5-.5-.5zM12 4.97l-.64.61c-.06.04-.08.11-.07.18v4.5c-.01.07.01.14.07.18l.63.61v.14H8.85v-.13l.65-.63c.06-.06.06-.08.06-.18V6.61l-1.8 4.56h-.24L5.43 6.61v3.06c-.02.13.03.26.12.35l.84 1.02v.14H4v-.14l.84-1.02c.07-.09.1-.17.11-.35V6.12c.01-.1-.03-.19-.1-.26l-.75-.9V4.83h2.35l1.79 3.93 1.58-3.93H12v.14z"/>
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://substack.com/@NCResq" title="Substack">
+                    <svg class="svg-icon grey" viewBox="0 0 448 512">
+                      <path d="M0 0h448v62.804H0V0zm0 229.083h448v282.388L223.954 385.808 0 511.471V229.083zm0-114.542h448v62.804H0v-62.804z"/>
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.producthunt.com/@NCResq" title="ProductHunt">
+                    <svg class="svg-icon grey" viewBox="0 0 512 512">
+                      <path d="M512 256c0 141.39-114.61 256-256 256S0 397.39 0 256 114.61 0 256 0s256 114.61 256 256z"/>
+                      <path fill="#fff" d="M290.14 256H217.6v-76.8h72.54c21.2 0 38.4 17.19 38.4 38.4 0 20.93-16.76 37.96-37.58 38.39-.27.01-.55.01-.82.01zm0-128H166.4v256h51.2v-76.8h72.54c49.47-.01 89.6-40.13 89.6-89.6 0-49.48-40.13-89.6-89.6-89.6z"/>
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.figma.com/@NCResq" title="Figma Community">
+                    <svg class="svg-icon grey" viewBox="0 0 346 512">
+                      <path fill="#00B6FF" d="M172.53 246.9c0-42.04 34.09-76.11 76.12-76.11h11.01c.3.01.63-.01.94-.01 47.16 0 85.4 38.25 85.4 85.4 0 47.15-38.24 85.39-85.4 85.39-.31 0-.64-.01-.95-.01l-11 .01c-42.03 0-76.12-34.09-76.12-76.12V246.9z"/>
+                      <path fill="#24CB71" d="M0 426.98c0-47.16 38.24-85.41 85.4-85.41l87.13.01v84.52c0 47.65-39.06 86.26-86.71 86.26C38.67 512.36 0 474.13 0 426.98z"/>
+                      <path fill="#FF7237" d="M172.53.01v170.78h87.13c.3-.01.63.01.94.01 47.16 0 85.4-38.25 85.4-85.4C346 38.24 307.76 0 260.6 0c-.31 0-.64.01-.95.01h-87.12z"/>
+                      <path fill="#FF3737" d="M0 85.39c0 47.16 38.24 85.4 85.4 85.4h87.13V.01H85.39C38.24.01 0 38.24 0 85.39z"/>
+                      <path fill="#874FFF" d="M0 256.18c0 47.16 38.24 85.4 85.4 85.4h87.13V170.8H85.39C38.24 170.8 0 209.03 0 256.18z"/>
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </header>
+        <h1 style="margin-top: 40px; margin-bottom: 24px;">Latest Writing</h1>
+        <div id="postsContainer" class="post-content e-content" itemprop="articleBody"></div>
+        <div style="text-align: center; margin-top: 40px;">
+          <a href="writing.html" style="display: inline-block; padding: 12px 30px; background: var(--accent-color); color: white; text-decoration: none; border-radius: 25px; font-weight: 600; transition: transform 0.2s ease;">View All Posts →</a>
+        </div>
+      </article>
+      
+      <script type="module">
+  
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-analytics.js";
+      import { getDatabase, ref, set, onValue, update } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-database.js";
+      import { getAuth, signInWithRedirect, getRedirectResult, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-auth.js";
+  
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+  
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  
+      const firebaseConfig = {
+        apiKey: "AIzaSyCrYHfMLzFwXtYucOzkVEEvXhywnT53cWE",
+        authDomain: "chandrafun-fcc62.firebaseapp.com",
+        databaseURL: "https://chandrafun-fcc62-default-rtdb.asia-southeast1.firebasedatabase.app/",
+        projectId: "chandrafun-fcc62",
+        storageBucket: "chandrafun-fcc62.appspot.com",
+        messagingSenderId: "46457356879",
+        appId: "1:46457356879:web:acecdd6ad80d947b8a203a",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+      const db = getDatabase();
+      const provider = new GoogleAuthProvider();
+      const auth = getAuth();
+      const user = auth.currentUser;
+  
+      const reference = ref(db, 'posts');
+  
+      var vdisplayname = "";
+      var vphotourl = "";
+      var numposts = 0;
+
+
+      // One time run
+        onValue(reference, (snapshot) => {
+          // Convert snapshot to array and sort by date
+          const posts = [];
+          snapshot.forEach((postSnapshot) => {
+            posts.push({
+              key: postSnapshot.key,
+              data: postSnapshot.val()
+            });
+          });
+
+          // Function to get date for sorting (same logic as display)
+          function getPostDate(postData) {
+            if (postData.date) {
+              return new Date(postData.date);
+            }
+            const title = (postData.title || '').toLowerCase();
+            // Most recent: vibe coding article
+            if (title.includes('vibe') || title.includes('coding')) {
+              return new Date('2024-12-15');
+            } else if (title.includes('design') || title.includes('product')) {
+              return new Date('2024-11-28');
+            } else if (title.includes('gojek')) {
+              return new Date('2024-10-15');
+            } else if (title.includes('wayground')) {
+              return new Date('2024-09-20');
+            } else if (title.includes('tech')) {
+              return new Date('2024-08-10');
+            } else {
+              // Default to older date for posts without matching keywords
+              return new Date('2024-01-01');
+            }
+          }
+
+          // Sort posts by date in reverse chronological order (newest first)
+          posts.sort((a, b) => {
+            const dateA = getPostDate(a.data);
+            const dateB = getPostDate(b.data);
+            return dateB - dateA; // Reverse chronological
+          });
+
+          // Clear the container before adding sorted posts
+          document.getElementById('postsContainer').innerHTML = '';
+
+          // Function to generate mock dates based on title
+          function getMockDate(title) {
+            const titleLower = title.toLowerCase();
+            // Most recent: vibe coding article
+            if (titleLower.includes('vibe') || titleLower.includes('coding')) {
+              return new Date('2024-12-15');
+            } else if (titleLower.includes('design') || titleLower.includes('product')) {
+              return new Date('2024-11-28');
+            } else if (titleLower.includes('gojek')) {
+              return new Date('2024-10-15');
+            } else if (titleLower.includes('wayground')) {
+              return new Date('2024-09-20');
+            } else if (titleLower.includes('tech')) {
+              return new Date('2024-08-10');
+            } else {
+              // Random date in 2024
+              const month = Math.floor(Math.random() * 8) + 1; // Jan to Aug
+              const day = Math.floor(Math.random() * 28) + 1;
+              return new Date(`2024-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`);
+            }
+          }
+
+          // Function to generate tags based on title and subtitle
+          function getTags(title, subtitle) {
+            const tags = [];
+            const text = ((title || '') + ' ' + (subtitle || '')).toLowerCase();
+            
+            // Check for user research keywords
+            if (text.includes('user') || text.includes('research') || text.includes('interview') || 
+                text.includes('usability') || text.includes('testing') || text.includes('feedback')) {
+              tags.push('user research');
+            }
+            
+            // Check for data analytics keywords
+            if (text.includes('data') || text.includes('analytics') || text.includes('metric') || 
+                text.includes('analysis') || text.includes('dashboard') || text.includes('insight')) {
+              tags.push('data analytics');
+            }
+            
+            // Check for product design keywords
+            if (text.includes('design') || text.includes('ui') || text.includes('ux') || 
+                text.includes('interface') || text.includes('wireframe') || text.includes('prototype') ||
+                text.includes('vibe') || text.includes('visual')) {
+              tags.push('product design');
+            }
+            
+            // Check for career keywords
+            if (text.includes('career') || text.includes('job') || text.includes('work') || 
+                text.includes('gojek') || text.includes('wayground') || text.includes('team') ||
+                text.includes('growth') || text.includes('learning')) {
+              tags.push('career');
+            }
+            
+            // If no tags matched, add a default based on common patterns
+            if (tags.length === 0) {
+              if (text.includes('msme') || text.includes('business')) {
+                tags.push('product design');
+              } else {
+                tags.push('career');
+              }
+            }
+            
+            return tags;
+          }
+
+          // Show only first 3 posts on homepage
+          const featuredPosts = posts.slice(0, 3);
+          
+          // Render featured posts
+          featuredPosts.forEach((post) => {
+            const postKey = post.key;
+            const postData = post.data;
+            
+            // Use real date if available, otherwise use mock date
+            const postDate = postData.date ? new Date(postData.date) : getMockDate(postData.title || '');
+            
+            // Format date for display
+            const dateStr = postDate.toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'short',
+              day: 'numeric'
+            });
+
+            // Get tags for the post
+            const tags = postData.tags || getTags(postData.title, postData.subtitle);
+            const tagsHtml = tags.map(tag => `<span class='post-tag'>${tag}</span>`).join('');
+
+            var visibleCode = "<div class='post-container animated fadeInUp'>" +
+              "<h3 class='post-title'>" + "<a href='/" + postKey + "'>" + postData.title + "</a></h3>" +
+              "<p class='post-subtitle'>" + postData.subtitle + "</p>" +
+              "<div class='post-meta'>" +
+              (dateStr ? "<span class='post-date'>" + dateStr + "</span>" : "") +
+              (tagsHtml ? "<div class='post-tags'>" + tagsHtml + "</div>" : "") +
+              "</div>" +
+              "</div>";
+
+            var hiddenCode = "<div class='post-container animated fadeInUp hidden-article'>" +
+              "<h3 class='post-title'>" + "<a href='/" + postKey + "'>" + postData.title + "</a></h3>" +
+              "<p class='post-subtitle'>" + postData.subtitle + "</p>" +
+              "<div class='post-meta'>" +
+              (dateStr ? "<span class='post-date'>" + dateStr + "</span>" : "") +
+              (tagsHtml ? "<div class='post-tags'>" + tagsHtml + "</div>" : "") +
+              "</div>" +
+              "</div>";
+
+            if (postData.feed == "hidden") {
+                document.getElementById('postsContainer').innerHTML += hiddenCode;
+              }
+            else document.getElementById('postsContainer').innerHTML += visibleCode;
+
+          numposts++;
+          });
+
+          const collection = document.getElementsByClassName("post-container");
+          for (let i = 0; i < collection.length; i++) {
+            collection[i].style.animationDelay = ( i * 60 ) + 'ms';
+          }
+
+  
+        });
+
+
+  
+        // check if logged in
+        getUserDetails();
+  
+      function signInUser() {
+        console.log("Trying to sign in...")
+        signInWithRedirect(auth, provider);
+      }
+  
+      function showUserOnPage() {
+        document.getElementById('containerOfUser').classList.remove('displaynone');
+        document.getElementById('photoOfUser').src = vphotourl;
+        document.getElementById('nameOfUser').innerHTML = vdisplayname;
+        vlogin.classList.add('displaynone');
+      }
+
+      function showUnpublished() {
+        const unpubs = document.getElementsByClassName("post-container");
+          for (let i = 0; i < collection.length; i++) {
+            unpubs[i].style.display = "visible";
+          }
+      }
+  
+      function getUserDetails() {
+        console.log("Trying to get user details...");
+  
+        const auth = getAuth();
+
+  getRedirectResult(auth)
+    .then((result) => {
+      // This gives you a Google Access Token. You can use it to access Google APIs.
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+  
+      console.log(credential);
+      console.log(token);
+  
+      // The signed-in user info.
+      const user = result.user;
+      console.log(user);
+      console.log("i think you are " + user.displayName);
+      vdisplayname = user.displayName;
+      vphotourl = user.photoURL;
+      showUserOnPage();
+      
+    }).catch((error) => {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // The email of the user's account used.
+      const email = error.email;
+      // The AuthCredential type that was used.
+      const credential = GoogleAuthProvider.credentialFromError(error);
+      // ...
+    });
+  
+      }
+  
+      </script>
+    </div>
+  </main>
+
+<footer class="site-footer h-card">
+  <data class="u-url" href="/">
+  </data>
+  <div class="wrapper">
+    <div class="footer-col-wrapper">
+      <div class="footer-col one-half">
+        <h2 class="footer-heading">Chandra Ramanujan</h2>
+        <ul class="contact-list">
+          <p>Made with love, 2022</p>
+          <!-- <li class="p-name">Chandra Ramanujan</li><li><a class="u-email" href="mailto:hello@gyanl.com">hello@gyanl.com</a></li>-->
+        </ul>
+      </div>
+      <div class="footer-col one-half">
+        <h2 class="footer-heading"></h2>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Theme Toggle Button -->
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+  <span id="themeIcon">🌙</span>
+</button>
+
+<script>
+  // Theme Toggle Functionality
+  (function() {
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const body = document.body;
+    
+    // Check for saved theme preference or default to 'light'
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    body.setAttribute('data-theme', currentTheme);
+    updateThemeIcon(currentTheme);
+    
+    // Toggle theme
+    themeToggle.addEventListener('click', function() {
+      const newTheme = body.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      
+      body.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateThemeIcon(newTheme);
+    });
+    
+    function updateThemeIcon(theme) {
+      themeIcon.textContent = theme === 'light' ? '🌙' : '☀️';
+    }
+  })();
+</script>
+
+<script>
+  // Ensure fonts are loaded and applied
+  document.fonts.ready.then(function() {
+    document.body.classList.add('fonts-loaded');
+  });
+</script>
+
+</body>
+
+</html>

@@ -84,7 +84,7 @@ input:focus,select:focus,textarea:focus,[contenteditable]{
 outline:none
 }
 body{
-font:400 16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+font:400 16px/1.5 'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
 color:var(--text-color);
 background-color:var(--background-color);
 -webkit-text-size-adjust:100%;
@@ -93,6 +93,12 @@ font-kerning:normal;
 display:flex;
 min-height:100vh;
 flex-direction:column
+}
+h1,h2,h3,h4,h5,h6{
+font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto",sans-serif;
+font-weight:600;
+letter-spacing:-0.02em;
+line-height:1.3
 }
 .tag{
 font-size:11px;
@@ -249,12 +255,12 @@ color:#f86b6b
 color:#fdfdfe
 }
 .svg-icon{
-width:24px;
-height:24px;
+width:16px;
+height:16px;
 display:inline-block;
 border-radius:4px;
 fill:currentColor;
-padding:8px 0 0 8px;
+padding:4px;
 vertical-align:text-bottom
 }
 table{
@@ -834,6 +840,53 @@ border:1px solid rgba(100,100,100,0.2) inset
 .post-header{
 margin-bottom:16px
 }
+.post-container{
+margin-bottom:24px;
+padding-bottom:16px;
+border-bottom:1px solid var(--overlay-edge-color)
+}
+.post-container:last-child{
+border-bottom:none
+}
+.post-container .post-title{
+margin-bottom:8px;
+font-size:20px
+}
+.post-container .post-subtitle{
+color:var(--text-color);
+margin-bottom:4px;
+line-height:1.4
+}
+.post-container .post-meta{
+display:flex;
+flex-direction:column;
+gap:8px;
+margin-top:8px
+}
+.post-container .post-date{
+color:var(--text-color-light);
+font-size:14px
+}
+.post-container .post-tags{
+display:flex;
+flex-wrap:wrap;
+gap:6px
+}
+.post-container .post-tag{
+background-color:var(--accent-color-light);
+color:var(--text-color);
+padding:4px 10px;
+border-radius:12px;
+font-size:12px;
+font-weight:500;
+display:inline-block;
+transition:all 0.2s ease
+}
+.post-container .post-tag:hover{
+background-color:var(--accent-color);
+color:#fff;
+transform:translateY(-1px)
+}
 .social-media-list{
 display:table;
 margin:0 0 0 -4px;
@@ -859,6 +912,27 @@ background-color: var(--overlay-color);
 .social-media-list li:hover .svg-icon{
 fill:var(--accent-color);
 background-color: var(--accent-color-light)
+}
+.social-text-link{
+display:block;
+padding:4px 0 0 4px
+}
+.social-text-icon{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+width:16px;
+height:16px;
+border-radius:3px;
+background-color:var(--overlay-color);
+color:var(--accent-color);
+font-weight:bold;
+font-size:11px;
+transition:all 0.2s ease
+}
+.social-text-link:hover .social-text-icon{
+background-color:var(--accent-color-light);
+color:var(--accent-color)
 }
 @media screen and (min-width: 800px){
 .one-half{
