@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Work - Chandra Ramanujan</title>
+  <meta property="og:title" content="Work - Chandra Ramanujan" />
+  <meta name="author" content="Chandra Ramanujan" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="description" content="Portfolio of product design work spanning education, fintech, and small business tools" />
+  <meta property="og:site_name" content="Chandra Ramanujan" />
+  <meta name="twitter:card" content="summary" />
+  <meta property="twitter:title" content="Work - Chandra Ramanujan" />
+  
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="fonts.css">
+  <style>
+    .work-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    
+    .work-hero {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .work-hero h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      color: var(--text-color-dark);
+      animation: fadeInUp 0.6s ease;
+    }
+    
+    .work-hero p {
+      font-size: 1.3em;
+      color: var(--text-color);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+      animation: fadeInUp 0.6s ease 0.1s both;
+    }
+    
+    .filter-container {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 50px;
+      flex-wrap: wrap;
+      animation: fadeInUp 0.6s ease 0.2s both;
+    }
+    
+    .filter-btn {
+      padding: 10px 20px;
+      border: 2px solid var(--accent-color-light);
+      background: transparent;
+      color: var(--text-color);
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.95em;
+      font-weight: 500;
+    }
+    
+    .filter-btn:hover {
+      background: var(--accent-color-light);
+      transform: translateY(-2px);
+    }
+    
+    .filter-btn.active {
+      background: var(--accent-color);
+      color: white;
+      border-color: var(--accent-color);
+    }
+    
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+    
+    .project-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    
+    .project-card {
+      background: var(--overlay-color);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      animation: fadeInUp 0.6s ease both;
+      position: relative;
+    }
+    
+    .project-card:hover, .project-link:hover .project-card {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+    
+    .project-card.hidden {
+      display: none;
+    }
+    
+    .project-image {
+      width: 100%;
+      height: 250px;
+      background: linear-gradient(135deg, var(--accent-color-light), var(--accent-color));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .project-logo {
+      font-size: 3em;
+      color: white;
+      font-weight: bold;
+      opacity: 0.9;
+    }
+    
+    .project-content {
+      padding: 25px;
+    }
+    
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      margin-bottom: 15px;
+    }
+    
+    .project-title {
+      font-size: 1.4em;
+      font-weight: 600;
+      color: var(--text-color-dark);
+      margin-bottom: 5px;
+    }
+    
+    .project-company {
+      color: var(--accent-color);
+      font-size: 0.9em;
+      font-weight: 500;
+    }
+    
+    .project-year {
+      color: var(--text-color-light);
+      font-size: 0.9em;
+    }
+    
+    .project-description {
+      color: var(--text-color);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    
+    .project-tag {
+      padding: 5px 12px;
+      background: var(--background-color);
+      color: var(--text-color);
+      border-radius: 15px;
+      font-size: 0.85em;
+    }
+    
+    .case-study-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: white;
+      color: var(--accent-color);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.85em;
+      font-weight: 600;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .project-card:hover .case-study-badge {
+      opacity: 1;
+    }
+    
+    .coming-soon {
+      text-align: center;
+      padding: 40px;
+      background: var(--overlay-color);
+      border-radius: 12px;
+      margin-top: 40px;
+    }
+    
+    .coming-soon h3 {
+      color: var(--text-color-dark);
+      margin-bottom: 15px;
+    }
+    
+    .coming-soon p {
+      color: var(--text-color);
+    }
+    
+    .stats-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      margin: 60px 0;
+      text-align: center;
+    }
+    
+    .stat-card {
+      padding: 30px;
+      background: var(--overlay-color);
+      border-radius: 12px;
+      animation: fadeInUp 0.6s ease both;
+    }
+    
+    .stat-number {
+      font-size: 2.5em;
+      font-weight: bold;
+      color: var(--accent-color);
+      margin-bottom: 10px;
+    }
+    
+    .stat-label {
+      color: var(--text-color);
+      font-size: 1.1em;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .work-hero h1 {
+        font-size: 2em;
+      }
+      
+      .filter-container {
+        padding: 0 10px;
+      }
+    }
+  </style>
+</head>
+  
+<body>
+  <header class="site-header">
+    <div class="wrapper">
+      <a class="site-title" rel="author" href="/">Chandra Ramanujan</a>
+     <nav class="site-nav">
+  <div class="wrapper nav-wrapper">
+    <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+    <label for="nav-trigger">
+      <span class="menu-icon">
+        <svg viewBox="0 0 18 15" width="18px" height="15px">
+          <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+        </svg>
+      </span>
+    </label>
+    <div class="trigger">
+      <a class="page-link" href="/">Home</a>
+      <a class="page-link" href="work.html">Work</a>
+      <a class="page-link" href="writing.html">Writing</a>
+      <a class="page-link" href="contact.html">Contact</a>
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+  
+  <main class="page-content" aria-label="Content">
+    <div class="work-container">
+      
+      <div class="work-hero">
+        <h1>Selected Work</h1>
+        <p>Crafting meaningful experiences at the intersection of user needs and business goals</p>
+      </div>
+      
+      <div class="filter-container">
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        <button class="filter-btn" data-filter="product-design">Product Design</button>
+        <button class="filter-btn" data-filter="user-research">User Research</button>
+        <button class="filter-btn" data-filter="data-analytics">Data Analytics</button>
+        <button class="filter-btn" data-filter="mobile">Mobile</button>
+      </div>
+      
+      <div class="projects-grid">
+        
+        <!-- Wayground Project -->
+        <a href="case-study-wayground.html" class="project-link">
+          <div class="project-card" data-category="product-design user-research">
+            <div class="project-image">
+              <span class="case-study-badge">View Case Study →</span>
+              <div class="project-logo">W</div>
+            </div>
+            <div class="project-content">
+              <div class="project-header">
+                <div>
+                  <h3 class="project-title">Teacher Dashboard Redesign</h3>
+                  <p class="project-company">Wayground</p>
+                </div>
+                <span class="project-year">2024</span>
+              </div>
+              <p class="project-description">
+                Reimagined the teacher dashboard to reduce cognitive load and improve daily workflow efficiency by 40%. Focused on making complex data accessible and actionable.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">Education Tech</span>
+                <span class="project-tag">Dashboard Design</span>
+                <span class="project-tag">User Research</span>
+              </div>
+            </div>
+          </div>
+        </a>
+        
+        <!-- Gojek Project 1 -->
+        <div class="project-card" data-category="product-design mobile">
+          <div class="project-image">
+            <span class="case-study-badge">View Case Study →</span>
+            <div class="project-logo">G</div>
+          </div>
+          <div class="project-content">
+            <div class="project-header">
+              <div>
+                <h3 class="project-title">GoFood Merchant App</h3>
+                <p class="project-company">Gojek</p>
+              </div>
+              <span class="project-year">2023</span>
+            </div>
+            <p class="project-description">
+              Led the design of merchant-facing features that helped 500K+ SMEs manage their digital storefronts. Increased merchant satisfaction scores by 35%.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Mobile Design</span>
+              <span class="project-tag">MSME Tools</span>
+              <span class="project-tag">Fintech</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Gojek Project 2 -->
+        <div class="project-card" data-category="data-analytics product-design">
+          <div class="project-image">
+            <span class="case-study-badge">View Case Study →</span>
+            <div class="project-logo">G</div>
+          </div>
+          <div class="project-content">
+            <div class="project-header">
+              <div>
+                <h3 class="project-title">Business Analytics Platform</h3>
+                <p class="project-company">Gojek</p>
+              </div>
+              <span class="project-year">2022</span>
+            </div>
+            <p class="project-description">
+              Designed a comprehensive analytics platform helping merchants understand customer behavior and optimize their operations through data-driven insights.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Data Visualization</span>
+              <span class="project-tag">Analytics</span>
+              <span class="project-tag">B2B Platform</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Pause Project -->
+        <div class="project-card" data-category="product-design user-research mobile">
+          <div class="project-image">
+            <span class="case-study-badge">View Case Study →</span>
+            <div class="project-logo">P</div>
+          </div>
+          <div class="project-content">
+            <div class="project-header">
+              <div>
+                <h3 class="project-title">Inventory Management System</h3>
+                <p class="project-company">Pause</p>
+              </div>
+              <span class="project-year">2021</span>
+            </div>
+            <p class="project-description">
+              Created an intuitive inventory management solution for small retailers, reducing stock management time by 60% through smart automation and predictive features.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">SaaS Design</span>
+              <span class="project-tag">Small Business</span>
+              <span class="project-tag">Mobile First</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Research Project -->
+        <div class="project-card" data-category="user-research data-analytics">
+          <div class="project-image">
+            <span class="case-study-badge">View Case Study →</span>
+            <div class="project-logo">R</div>
+          </div>
+          <div class="project-content">
+            <div class="project-header">
+              <div>
+                <h3 class="project-title">Digital Payment Adoption Study</h3>
+                <p class="project-company">Independent Research</p>
+              </div>
+              <span class="project-year">2020</span>
+            </div>
+            <p class="project-description">
+              Conducted ethnographic research across 5 cities to understand barriers to digital payment adoption among small merchants, informing product strategy.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">User Research</span>
+              <span class="project-tag">Ethnography</span>
+              <span class="project-tag">Strategy</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Academic Project -->
+        <div class="project-card" data-category="data-analytics">
+          <div class="project-image">
+            <span class="case-study-badge">View Case Study →</span>
+            <div class="project-logo">IIT</div>
+          </div>
+          <div class="project-content">
+            <div class="project-header">
+              <div>
+                <h3 class="project-title">Cyclone Impact Visualization</h3>
+                <p class="project-company">IIT Madras</p>
+              </div>
+              <span class="project-year">2017</span>
+            </div>
+            <p class="project-description">
+              Developed an interactive visualization system for understanding infrastructure resilience using agent-based modeling and network analysis.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Data Visualization</span>
+              <span class="project-tag">Research</span>
+              <span class="project-tag">Systems Design</span>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      
+      <div class="stats-section">
+        <div class="stat-card">
+          <div class="stat-number">50+</div>
+          <div class="stat-label">Projects Delivered</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">1M+</div>
+          <div class="stat-label">Users Impacted</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">3</div>
+          <div class="stat-label">Industries</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">7+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+      </div>
+      
+      <div class="coming-soon">
+        <h3>More Case Studies Coming Soon</h3>
+        <p>I'm currently documenting additional projects. Check back soon or reach out to discuss my work in detail.</p>
+      </div>
+      
+    </div>
+  </main>
+  
+  <script>
+    // Filter functionality
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Update active button
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        // Filter projects
+        const filter = btn.getAttribute('data-filter');
+        
+        projectCards.forEach((card, index) => {
+          if (filter === 'all') {
+            card.classList.remove('hidden');
+            card.style.animationDelay = `${index * 0.1}s`;
+          } else {
+            const categories = card.getAttribute('data-category');
+            if (categories && categories.includes(filter)) {
+              card.classList.remove('hidden');
+              card.style.animationDelay = `${index * 0.1}s`;
+            } else {
+              card.classList.add('hidden');
+            }
+          }
+        });
+      });
+    });
+    
+    // Add click handlers for project cards
+    projectCards.forEach(card => {
+      card.addEventListener('click', () => {
+        // In a real implementation, this would navigate to the case study
+        console.log('Navigate to case study');
+      });
+    });
+    
+    // Add stagger animation on load
+    projectCards.forEach((card, index) => {
+      card.style.animationDelay = `${0.3 + index * 0.1}s`;
+    });
+  </script>
+<script src="theme-toggle.js"></script>
+</body>
+</html>

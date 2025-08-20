@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact - Chandra Ramanujan</title>
+  <meta property="og:title" content="Contact - Chandra Ramanujan" />
+  <meta name="author" content="Chandra Ramanujan" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="description" content="Get in touch with Chandra Ramanujan for design collaborations and opportunities" />
+  <meta property="og:site_name" content="Chandra Ramanujan" />
+  <meta name="twitter:card" content="summary" />
+  <meta property="twitter:title" content="Contact - Chandra Ramanujan" />
+  
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="fonts.css">
+  <style>
+    .contact-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    
+    .contact-hero {
+      text-align: center;
+      margin-bottom: 60px;
+      animation: fadeInUp 0.6s ease;
+    }
+    
+    .contact-hero h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      color: var(--text-color-dark);
+    }
+    
+    .contact-hero p {
+      font-size: 1.3em;
+      color: var(--text-color);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    
+    .contact-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 60px;
+    }
+    
+    .contact-form {
+      animation: fadeInUp 0.6s ease 0.1s both;
+    }
+    
+    .contact-info {
+      animation: fadeInUp 0.6s ease 0.2s both;
+    }
+    
+    .form-group {
+      margin-bottom: 25px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--text-color-dark);
+      font-weight: 500;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 15px;
+      border: 2px solid var(--overlay-edge-color);
+      border-radius: 8px;
+      background: var(--background-color);
+      color: var(--text-color);
+      font-size: 1em;
+      transition: all 0.3s ease;
+      font-family: inherit;
+    }
+    
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--accent-color);
+      box-shadow: 0 0 0 3px var(--accent-color-light);
+    }
+    
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    
+    .submit-btn {
+      background: var(--accent-color);
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 8px;
+      font-size: 1.1em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+    
+    .submit-btn:hover {
+      background: var(--accent-color-dark);
+      transform: translateY(-2px);
+    }
+    
+    .contact-info h2 {
+      color: var(--text-color-dark);
+      margin-bottom: 30px;
+      font-size: 1.5em;
+    }
+    
+    .contact-methods {
+      space-y: 25px;
+    }
+    
+    .contact-method {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 20px;
+      background: var(--overlay-color);
+      border-radius: 12px;
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+    }
+    
+    .contact-method:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+    
+    .contact-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--accent-color-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-color);
+      font-weight: bold;
+    }
+    
+    .contact-details h3 {
+      color: var(--text-color-dark);
+      margin-bottom: 5px;
+      font-size: 1.1em;
+    }
+    
+    .contact-details p {
+      color: var(--text-color);
+      margin: 0;
+    }
+    
+    .contact-details a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+    
+    .contact-details a:hover {
+      text-decoration: underline;
+    }
+    
+    .social-section {
+      text-align: center;
+      padding: 40px;
+      background: var(--overlay-color);
+      border-radius: 12px;
+      margin-bottom: 40px;
+      animation: fadeInUp 0.6s ease 0.3s both;
+    }
+    
+    .social-section h2 {
+      color: var(--text-color-dark);
+      margin-bottom: 20px;
+    }
+    
+    .social-section p {
+      color: var(--text-color);
+      margin-bottom: 30px;
+    }
+    
+    .social-links-large {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .social-link-large {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 20px;
+      background: var(--background-color);
+      border: 2px solid var(--overlay-edge-color);
+      border-radius: 25px;
+      text-decoration: none;
+      color: var(--text-color);
+      transition: all 0.3s ease;
+    }
+    
+    .social-link-large:hover {
+      border-color: var(--accent-color);
+      background: var(--accent-color-light);
+      transform: translateY(-2px);
+    }
+    
+    .response-section {
+      text-align: center;
+      padding: 30px;
+      background: var(--accent-color-light);
+      border-radius: 12px;
+      animation: fadeInUp 0.6s ease 0.4s both;
+    }
+    
+    .response-section h3 {
+      color: var(--text-color-dark);
+      margin-bottom: 15px;
+    }
+    
+    .response-section p {
+      color: var(--text-color);
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .contact-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      
+      .contact-hero h1 {
+        font-size: 2em;
+      }
+      
+      .social-links-large {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+  
+<body>
+  <header class="site-header">
+    <div class="wrapper">
+      <a class="site-title" rel="author" href="/">Chandra Ramanujan</a>
+     <nav class="site-nav">
+  <div class="wrapper nav-wrapper">
+    <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+    <label for="nav-trigger">
+      <span class="menu-icon">
+        <svg viewBox="0 0 18 15" width="18px" height="15px">
+          <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+        </svg>
+      </span>
+    </label>
+    <div class="trigger">
+      <a class="page-link" href="/">Home</a>
+      <a class="page-link" href="work.html">Work</a>
+      <a class="page-link" href="writing.html">Writing</a>
+      <a class="page-link" href="contact.html">Contact</a>
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+  
+  <main class="page-content" aria-label="Content">
+    <div class="contact-container">
+      
+      <div class="contact-hero">
+        <h1>Let's Work Together</h1>
+        <p>I'm always excited to collaborate on meaningful projects and connect with fellow creators</p>
+      </div>
+      
+      <div class="contact-content">
+        
+        <div class="contact-form">
+          <form id="contactForm">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" required placeholder="Tell me about your project, idea, or just say hello..."></textarea>
+            </div>
+            
+            <button type="submit" class="submit-btn">Send Message</button>
+          </form>
+        </div>
+        
+        <div class="contact-info">
+          <h2>Get in Touch</h2>
+          
+          <div class="contact-method">
+            <div class="contact-icon">@</div>
+            <div class="contact-details">
+              <h3>Email</h3>
+              <p><a href="mailto:attnchand@gmail.com">attnchand@gmail.com</a></p>
+            </div>
+          </div>
+          
+          <div class="contact-method">
+            <div class="contact-icon">📍</div>
+            <div class="contact-details">
+              <h3>Location</h3>
+              <p>Chennai, India</p>
+            </div>
+          </div>
+          
+          <div class="contact-method">
+            <div class="contact-icon">⏰</div>
+            <div class="contact-details">
+              <h3>Response Time</h3>
+              <p>Usually within 24 hours</p>
+            </div>
+          </div>
+          
+          <div class="contact-method">
+            <div class="contact-icon">💼</div>
+            <div class="contact-details">
+              <h3>Availability</h3>
+              <p>Open to new opportunities</p>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      
+      <div class="social-section">
+        <h2>Connect on Social</h2>
+        <p>Follow my work and thoughts across platforms</p>
+        <div class="social-links-large">
+          <a href="https://www.linkedin.com/in/chandrasekharn/" class="social-link-large">
+            <span>LinkedIn</span>
+          </a>
+          <a href="https://twitter.com/NCResq" class="social-link-large">
+            <span>Twitter</span>
+          </a>
+          <a href="https://dribbble.com/NCResq/shots" class="social-link-large">
+            <span>Dribbble</span>
+          </a>
+          <a href="https://medium.com/@NCResq" class="social-link-large">
+            <span>Medium</span>
+          </a>
+          <a href="https://instagram.com/NCResq" class="social-link-large">
+            <span>Instagram</span>
+          </a>
+        </div>
+      </div>
+      
+      <div class="response-section">
+        <h3>What to Expect</h3>
+        <p>I personally read and respond to every message. Whether you're interested in collaboration, have questions about my work, or just want to say hello – I'd love to hear from you!</p>
+      </div>
+      
+    </div>
+  </main>
+  
+  <script>
+    // Form handling
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Get form data
+      const formData = new FormData(this);
+      const name = formData.get('name');
+      const email = formData.get('email');
+      const subject = formData.get('subject');
+      const message = formData.get('message');
+      
+      // Create mailto link
+      const mailtoLink = `mailto:attnchand@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+      
+      // Open email client
+      window.location.href = mailtoLink;
+      
+      // Show confirmation
+      const submitBtn = this.querySelector('.submit-btn');
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = 'Opening Email Client...';
+      submitBtn.style.background = 'var(--text-color-light)';
+      
+      setTimeout(() => {
+        submitBtn.textContent = originalText;
+        submitBtn.style.background = 'var(--accent-color)';
+      }, 2000);
+    });
+    
+    // Form validation feedback
+    const inputs = document.querySelectorAll('input, textarea');
+    inputs.forEach(input => {
+      input.addEventListener('blur', function() {
+        if (this.value.trim() === '') {
+          this.style.borderColor = 'var(--accent-color)';
+        } else {
+          this.style.borderColor = 'var(--overlay-edge-color)';
+        }
+      });
+    });
+  </script>
+  <script src="theme-toggle.js"></script>
+</body>
+</html>
